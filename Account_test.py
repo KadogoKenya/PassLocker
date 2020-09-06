@@ -66,9 +66,22 @@ class TestUser(unittest.TestCase):
          the user list
         '''
         self.userDetails.save_user()
-        self.new_userDetails = userAccount("Kat","Kanini","0711670758","catherine001@gmail.com","KenyaKenya")
+        self.new_userDetails = userAccount("Kat","Kanini","0741670758","catherine001@gmail.com","KenyaKenya")
         self.new_userDetails.save_user()
         self.assertEqual(len(userAccount.user_details),2)
+
+    def test_details_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the credentials.
+        '''
+
+        self.userDetails.save_user()
+        test_detail = userAccount('kate','0711586438','ghijk','catherine001@gmail.com','KenyaKenya')
+        test_detail.save_user()
+
+        details_exists = userAccount.details_exists("0741223344")
+
+        self.assertTrue(details_exists)
 
 
 
@@ -137,17 +150,31 @@ class TestUserCredentials(unittest.TestCase):
         self.credentials.delete_credentials()
         self.assertEqual(len(userCredentials.user_credentials),1)
 
-    def test_find_credentials_by_number(self):
-        '''
-        test to check if we can find a contact by phone number and display information
-        '''
-        self.credentials.save_credential()
-        test_credential = userCredentials('kate','0711586438','ghijk')
-        test_credential.save_credential()
+    # def test_find_credentials_by_number(self):
+    #     '''
+    #     test to check if we can find a contact by phone number and display information
+    #     '''
+    #     self.credentials.save_credential()
+    #     test_credential = userCredentials('kate','0711586438','ghijk')
+    #     test_credential.save_credential()
 
-        found_credential = userCredentials.find_by_number('0711586438')
+    #     found_credential = userCredentials.find_credentials_by_number('0711586438')
 
-        self.assertEqual(found_credential.username,test_credential.username)
+    #     self.assertEqual(found_credential.username,test_credential.username)
+
+
+    # def test_credential_exists(self):
+    #     '''
+    #     test to check if we can return a Boolean  if we cannot find the credentials.
+    #     '''
+
+    #     self.credentials.save_credential()
+    #     test_credential = userCredentials('kate','0711586438','ghijk')
+    #     test_credential.save_credential()
+
+    #     credential_exists = userCredentials.credential_exists("0711223344")
+
+    #     self.assertTrue(credential_exists)
 
 if __name__ == "__main__":
     unittest.main()

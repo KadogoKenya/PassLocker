@@ -34,6 +34,21 @@ class userAccount:
     def save_user(self):
         userAccount.user_details.append(self)
 
+    @classmethod
+    def details_exists(cls,self,phone_number):
+        '''
+        Method that checks if a contact exists from the contact list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the details exists
+        '''
+        for detail in cls.user_details:
+            if detail.phone_number == phone_number:
+                return True
+
+        return False
+
 
 
 class userCredentials:
@@ -63,21 +78,35 @@ class userCredentials:
         userCredentials.user_credentials.remove(self)
 
 
-    @classmethod
-    def find_by_number(cls,number):
-        '''
-        Method that takes in a usename and returns a contact that matches that number.
+    # @classmethod
+    # def find_by_number(cls,number):
+    #     '''
+    #     Method that takes in a usename and returns a contact that matches that number.
 
-        Args:
-            username: username to search for
-        Returns :
-            credentials.
-        '''
+    #     Args:
+    #         username: username to search for
+    #     Returns :
+    #         credentials.
+    #     '''
 
-        for credential in cls.user_credentials:
-            if credential.number == number:
-                return credential
+    #     for credential in cls.user_credentials:
+    #         if credential.number == number:
+    #             return credential
 
+    # @classmethod
+    # def credential_exists(cls,number):
+    #     '''
+    #     Method that checks if a contact exists from the contact list.
+    #     Args:
+    #         number: Phone number to search if it exists
+    #     Returns :
+    #         Boolean: True or false depending if the contact exists
+    #     '''
+    #     for credential in cls.user_credentials:
+    #         if credential.number == number:
+    #             return True
+
+    #     return False
                 
         #          def find_by_number(cls,number):
         # '''
