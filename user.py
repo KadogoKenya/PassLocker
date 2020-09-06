@@ -51,6 +51,7 @@ class userCredentials:
             self.username = username
             self.password = password
             self.number=number
+            '''
 
     def save_credential(self):
         userCredentials.user_credentials.append(self)
@@ -63,7 +64,7 @@ class userCredentials:
 
 
     @classmethod
-    def find_by_username(cls,username):
+    def find_by_number(cls,number):
         '''
         Method that takes in a usename and returns a contact that matches that number.
 
@@ -73,6 +74,21 @@ class userCredentials:
             credentials.
         '''
 
-        for username in cls.user_credentials:
-            if credentials.username == username:
-                return username
+        for credential in cls.user_credentials:
+            if credential.number == number:
+                return credential
+
+                
+        #          def find_by_number(cls,number):
+        # '''
+        # Method that takes in a number and returns a contact that matches that number.
+
+        # Args:
+        #     number: Phone number to search for
+        # Returns :
+        #     Contact of person that matches the number.
+        # '''
+
+        # for contact in cls.contact_list:
+        #     if contact.phone_number == number:
+        #         return contact
