@@ -4,8 +4,8 @@ import random
 
 from user import userAccount
 
-def create_userDetails(first_name,last_name,phone_number,email,user_name, password):
-    new_userDetails= userAccount(first_name,last_name,phone_number,email,user_name, password)
+def create_userDetails(first_name,last_name,phone_number,email,user_name,):
+    new_userDetails= userAccount(first_name,last_name,phone_number,email,user_name,)
     return new_userDetails
 
 def save_userDetails(userDetails):
@@ -24,66 +24,30 @@ def main():
         short_code = input().lower()
 
         if short_code == 'cc':
-                            print("New User details")
-                            print("-"*10)
+            print("New User details")
+            print("-"*10)
 
-                            print ("First name ....")
-                            first_name = input()
+            print ("First name ....")
+            first_name = input()
 
-                            print("Last name ...")
-                            last_name = input()
+            print("Last name ...")
+            last_name = input()
 
-                            print("Email address ...")
-                            email = input()
+            print("Email address ...")
+            email = input()
 
-                            print("Phone number ...")
-                            phone_number = input()
+            print("Phone number ...")
+            phone_number = input()
 
-                            print("User Name ...")
-                            user_name = input()
-
-                            # while True:
-                            #     print("Use these short codes : gg - create a generate password, ex -exit the lock entry")
-
-                                
-
-                            print("create password: Do you want password generated or you type? use gg - to generate, ex -exit the lock entry")
-                            short_code = input().lower()
-                            if short_code == 'gg':
-
-                                # print(string.printable)
-
-                                def generatePassword(num):
-                                    password=''
-
-                                    for n in range(num):
-                                        x = random.randint(0,94)
-                                        password += string.printable[x]
-                                    return password
+            print("User Name ...")
+            user_name = input()
 
 
-                                password_length = int(input("Enter the length of password"))
-
-                                print (generatePassword(password_length))
-                                break
-                                # print ('\n')
-
-                            elif short_code == "ex":
-                                print("Bye .......")
-                                break
-                            else:
-                                print("enter password")
-
-                                password = input()
-                                break
-                                print ('\n')
-                                
-
-                            save_userDetails(create_userDetails(first_name,last_name,phone_number,email,user_name, password)) 
-                            print ('\n')
-                            print(f"new_userDetails {first_name} {last_name} created")
-                            print ('\n')
-
+            save_userDetails(create_userDetails(first_name,last_name,phone_number,email,user_name)) 
+            print ('\n')
+            print(f"new_userDetails {first_name} {last_name} created")
+            print ('\n')
+            break
 
 if __name__ == '__main__':
     main()
