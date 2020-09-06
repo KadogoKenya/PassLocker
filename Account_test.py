@@ -107,6 +107,7 @@ class TestUserCredentials(unittest.TestCase):
         '''
 
         self.assertEqual(self.credentials.username,'KadogoKenya')
+        self.assertEqual(self.credentials.number,'0720670758')
         self.assertEqual(self.credentials.password,'abcdef')
 
     def test_save_credential(self):
@@ -123,9 +124,43 @@ class TestUserCredentials(unittest.TestCase):
         the credentials list
         '''
         self.credentials.save_credential()
-        self.new_credentials =userCredentials('Eliza', 'ghijk')
+        self.new_credentials =userCredentials('Eliza','0711586438','ghijk')
         self.new_credentials.save_credential()
         self.assertEqual(len(userCredentials.user_credentials),2)
 
+
+    def test_delete_credentials(self):
+        self.credentials.save_credential()
+        test_credential = userCredentials('kate','0711586438','ghijk')
+        test_credential.save_credential()
+
+        self.credentials.delete_credentials()
+        self.assertEqual(len(userCredentials.user_credentials),1)
+
+    def test_find_credentials_by_number(self):
+        '''
+        test to check if we can find a contact by phone number and display information
+        '''
+        self.credentials.save_credential()
+        test_credential = userCredentials('kate','0711586438','ghijk')
+        test_credential.save_credential()
+
+        found_credential = userCredentials.find_by_number('0711586438')
+
+        self.assertEqual(found_credential.username,test_credential.username)
+
 if __name__ == "__main__":
     unittest.main()
+
+def test_find_contact_by_number(self):
+        '''
+        test to check if we can find a contact by phone number and display information
+        '''
+
+        self.new_contact.save_contact()
+        test_contact = Contact("Test","user","0711223344","test@user.com") # new contact
+        test_contact.save_contact()
+
+        found_contact = Contact.find_by_number("0711223344")
+
+        self.assertEqual(found_contact.email,test_contact.email)

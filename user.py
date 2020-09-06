@@ -42,20 +42,37 @@ class userCredentials:
     """
 
     user_credentials=[]
-    
-    def __init__(self,username,password):
+
+    def __init__(self,username,number,password):
 
             '''
             __init__ method that helps us define properties for our objects.
 
-            Args:
-                first_name: New contact new password.
-                last_name : New contact existing_password.
-            
-            '''
             self.username = username
             self.password = password
+            self.number=number
 
     def save_credential(self):
         userCredentials.user_credentials.append(self)
 
+    def delete_credentials(self):
+        '''
+        delete_credentials method deletes a saved contact from the contact_list
+        '''
+        userCredentials.user_credentials.remove(self)
+
+
+    @classmethod
+    def find_by_username(cls,username):
+        '''
+        Method that takes in a usename and returns a contact that matches that number.
+
+        Args:
+            username: username to search for
+        Returns :
+            credentials.
+        '''
+
+        for username in cls.user_credentials:
+            if credentials.username == username:
+                return username
