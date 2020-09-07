@@ -11,11 +11,13 @@ userAccount class-method definations
 '''
 
 def create_user(first_name,last_name,phone_number,email,user_name,):
+    
     userDetails= userAccount(first_name,last_name,phone_number,email,user_name)
+    
     return userDetails
 
-def save_userDetails(userDetails):
-    userDetails.save_user()
+def save_users(user):
+    user.save_user()
 
 def del_details(user):
     '''
