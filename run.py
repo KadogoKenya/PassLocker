@@ -83,6 +83,22 @@ def main():
             print ('\n')
             break
 
+        elif short_code == 'dc':
+
+            if display_details():
+                    print("Here is a list of all your contacts")
+                    print('\n')
+
+                    for detail in display_details():
+                            print(f"{detail.first_name} {detail.last_name} {detail.username} {detail.email}.....{detail.phone_number}")
+
+                    print('\n')
+            else:
+                    print('\n')
+                    print("You dont seem to have any contacts saved yet")
+                    print('\n')
+                    break
+
         
 
 if __name__ == '__main__':
