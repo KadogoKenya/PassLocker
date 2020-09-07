@@ -80,7 +80,7 @@ def main():
             user_name = input()
 
 
-            save_userDetails(create_user(first_name,last_name,phone_number,email,user_name)) 
+            save_users(create_user(first_name,last_name,phone_number,email,user_name)) 
             
             print ('\n')
             print(f"new_userDetails {first_name} {last_name} created")
@@ -89,12 +89,12 @@ def main():
 
         elif short_code == 'dc':
 
-            if display_details():
+            if display_user():
                     print("Here is a list of all your contacts")
                     print('\n')
 
-                    for detail in display_details():
-                            print(f"{detail.first_name} {detail.last_name} {detail.username} {detail.email}...{detail.phone_number}")
+                    for detail in display_user():
+                        print(f"{detail.first_name} {detail.last_name} {detail.user_name} {detail.email}...{detail.phone_number}")
                     print('\n')
             else:
                     print('\n')
