@@ -3,13 +3,20 @@ import string
 import random
 
 from user import userAccount
+from user import userCredentials
 
-def create_userDetails(first_name,last_name,phone_number,email,user_name,):
-    new_userDetails= userAccount(first_name,last_name,phone_number,email,user_name,)
-    return new_userDetails
+def create_user(first_name,last_name,phone_number,email,user_name,):
+    userDetails= userAccount(first_name,last_name,phone_number,email,user_name,phone_number)
+    return userDetails
 
 def save_userDetails(userDetails):
     userDetails.save_user()
+
+def del_user(userDetails):
+    '''
+    Function to delete a contact
+    '''
+    userDetails.delete_contact()
 
 def main():
     print("Hello Welcome to your account password locker. What is your name?")

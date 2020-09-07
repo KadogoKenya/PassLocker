@@ -1,8 +1,7 @@
 import unittest
 from user import userAccount
 from user import userCredentials
-# from credentials import userCredentials
-# from credentials import userCredentials
+import pyperclip
 
 
 class TestUser(unittest.TestCase):
@@ -81,7 +80,46 @@ class TestUser(unittest.TestCase):
 
         details_exists = userAccount.details_exists("0741223344")
 
-        self.assertTrue(details_exists)
+        # self.assertTrue(details_exists)
+
+    def test_find_detail_by_number(self):
+        '''
+        test to check if we can find a contact by phone number and display information
+        '''
+
+        self.userDetails.save_user()
+        test_detail = userAccount("Test","ghijk","0711223344","test@user.com",'username')
+        test_detail.save_user()
+
+        found_detail = userAccount.find_detail_by_number("0711223344")
+
+        self.assertEqual(found_detail.email,test_detail.email)
+
+    def test_copy_email(self):
+        '''
+        Test to confirm that we are copying the email address from a found contact
+        '''
+
+        self.userDetails.save_user()
+        userAccount.copy_email("0711223344")
+        self.assertEqual(self.user.email,pyperclip.paste())
+
+    def test_delete_user(self):
+        self.userDetails.save_user()
+        test_detail = userAccount("Test","ghijk","0711223344","test@user.com",'username')
+        test_detail.save_user()
+
+        self.userDetails.delete_user()
+        self.assertEqual(len(userAccount.user_details),1)
+
+
+    def test_display_user(self):
+        '''
+        method that returns a list of all user details saved
+        '''
+
+        self.assertEqual(userAccount.display_user(),userAccount.user_details)
+    
 
 
 
@@ -149,6 +187,15 @@ class TestUserCredentials(unittest.TestCase):
 
         self.credentials.delete_credentials()
         self.assertEqual(len(userCredentials.user_credentials),1)
+
+    # def test_display_all_credentials(self):
+    #     '''
+    #     method that returns a list of all saved user credentials saved
+    #     '''
+
+    #     self.assertEqual(userCredentials.display_credentials(),userCredentials.user_credentials()
+
+
 
     # def test_find_credentials_by_number(self):
     #     '''

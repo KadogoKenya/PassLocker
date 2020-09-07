@@ -1,13 +1,12 @@
 import string
 import random
+import pyperclip
 
 class userAccount:
     """
     Class that generates new instances of a userAccounts
     """
 
-
-    # contact_list = []
 
     user_details=[]
 
@@ -47,6 +46,40 @@ class userAccount:
             if detail.phone_number == phone_number:
                 return True
         return False
+
+    @classmethod
+    def find_detail_by_number(cls,number):
+        '''
+        Method that takes in a number and returns a contact that matches that number.
+
+        Args:
+            number: Phone number to search for
+        Returns :
+            userdetails of person that matches the number.
+        '''
+
+        for detail in cls.user_details:
+            if detail.phone_number == number:
+                return detail
+
+    @classmethod
+    def copy_email(cls,number):
+        detail_found = userAccount.find_detail_by_number(number)
+        pyperclip.copy(detail_found.email)
+
+
+    def delete_user(self):
+        '''
+        delete_credentials method deletes a saved contact from the contact_list
+        '''
+        userAccount.user_details.remove(self)
+
+    @classmethod
+    def display_user(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.user_details
 
 
 
