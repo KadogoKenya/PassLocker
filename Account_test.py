@@ -142,7 +142,7 @@ class TestUserCredentials(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.credentials = userCredentials('KadogoKenya','test@gmail.com' '0711586438','abcdef') 
+        self.credentials = userCredentials('KadogoKenya','test@gmail.com','0711586438','abcdef') 
 
 
     def tearDown(self):
@@ -176,14 +176,14 @@ class TestUserCredentials(unittest.TestCase):
         the credentials list
         '''
         self.credentials.save_credential()
-        self.new_credentials =userCredentials('Eliza','0711586438','ghijk')
+        self.new_credentials =userCredentials('Eliza','test@gmail.com','0711586438','ghijk')
         self.new_credentials.save_credential()
         self.assertEqual(len(userCredentials.user_credentials),2)
 
 
     def test_delete_credentials(self):
         self.credentials.save_credential()
-        test_credential = userCredentials('kate','0711586438','ghijk')
+        test_credential = userCredentials('kate','test@gmail.com','0711586438','ghijk')
         test_credential.save_credential()
 
         self.credentials.delete_credentials()
