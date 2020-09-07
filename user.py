@@ -114,6 +114,13 @@ class userCredentials:
         '''
         userCredentials.user_credentials.remove(self)
 
+    @classmethod
+    def display_credential(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.user_credentials
+
 
     # @classmethod
     # def find_by_number(cls,number):

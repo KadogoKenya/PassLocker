@@ -102,7 +102,7 @@ class TestUser(unittest.TestCase):
 
         self.userDetails.save_user()
         userAccount.copy_email("0711223344")
-        self.assertEqual(self.userDetails.email,pyperclip.paste())
+        self.assertEqual(self.userD.email,pyperclip.paste())
 
     def test_delete_user(self):
         self.userDetails.save_user()
@@ -188,6 +188,13 @@ class TestUserCredentials(unittest.TestCase):
 
         self.credentials.delete_credentials()
         self.assertEqual(len(userCredentials.user_credentials),1)
+
+    def test_display_credential(self):
+        '''
+        method that returns a list of all user details saved
+        '''
+
+        self.assertEqual(userCredentials.display_credential(),userCredentials.user_credentials)
 
     # def test_display_all_credentials(self):
     #     '''

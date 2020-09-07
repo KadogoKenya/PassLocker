@@ -44,6 +44,46 @@ def display_user():
     '''
     return userAccount.display_user()
 
+
+def create_credential(username,email,number,password):
+    
+    credentials= userCredentials(username,email,number,password)
+    
+    return credentials
+
+def save_credentials(user):
+    user.save_credentials()
+
+def del_credentials(user):
+    '''
+    Function to delete a user
+    '''
+    user.delete_credentials()
+
+def display_credentials():
+    '''
+    Function that returns all the saved contacts
+    '''
+    return userCredentials.display_credential()
+
+# def find_details(number):
+#     '''
+#     Function that finds a contact by number and returns the user
+#     '''
+#     return userAccount.find_detail_by_number(number)
+
+# def check_existing_details(number):
+#     '''
+#     Function that check if a contact exists with that number and return a Boolean
+#     '''
+#     return userAccount.details_exists(number)
+
+
+
+
+
+
+
 '''
 userCredentials class defination
 '''
@@ -56,7 +96,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : cc - create a new user details, dc - display user details,fu-find user, ex -exit ")
+        print("Use these short codes : cc - create a new user details, dc - display user details,fu-find user,lg-login ex -exit ")
 
         short_code = input().lower()
 
@@ -116,6 +156,8 @@ def main():
                     print(f"Email address.......{search_user.email}")
             else:
                     print("That contact does not exist")
+
+        
 
         
 
