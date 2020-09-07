@@ -35,7 +35,7 @@ def display_details():
     '''
     Function that returns all the saved contacts
     '''
-    return userAccount.display_contacts()
+    return userAccount.display_user()
 
 def main():
     print("Hello Welcome to your account password locker. What is your name?")
