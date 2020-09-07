@@ -66,24 +66,6 @@ def display_credentials():
     '''
     return userCredentials.display_credential()
 
-# def find_details(number):
-#     '''
-#     Function that finds a contact by number and returns the user
-#     '''
-#     return userAccount.find_detail_by_number(number)
-
-# def check_existing_details(number):
-#     '''
-#     Function that check if a contact exists with that number and return a Boolean
-#     '''
-#     return userAccount.details_exists(number)
-
-
-
-
-
-
-
 '''
 userCredentials class defination
 '''
@@ -156,6 +138,55 @@ def main():
                     print(f"Email address.......{search_user.email}")
             else:
                     print("That contact does not exist")
+
+            elif short_code==lg
+
+                print("New User username")
+                print("-"*10)
+
+                print ("Email ....")
+                email= input()
+
+                print("Number...")
+                username = input()
+
+                print("use short-codes gn-the system to generate a password for you, cp-to create your own password...")
+                email = input()
+                
+                    while True:
+                        print("use short-codes gp-the system to generate a password for you, cp-to create your own password...")
+
+                        short_code = input().lower()
+
+                        if short_code == 'gp':
+                            # print("New User details")
+                            # print("-"*10)
+
+                            def generatePassword(num):
+                                password=''
+
+                                for n in range(num):
+                                    x = random.randint(0,94)
+                                    password += string.printable[x]
+                                return password
+
+
+                            password_length = int(input("Enter the length of password"))
+
+                            print (generatePassword(password_length))
+
+                        elif short_code == cp
+                            print("Enter your password here")
+                            password=input()
+
+                        else:
+                            print("No password created")
+                
+                save_users(create_user(first_name,last_name,phone_number,email,user_name)) 
+                
+                print ('\n')
+                print(f"new_userDetails {first_name} {last_name} created")
+                print ('\n')
 
         
 
