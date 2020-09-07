@@ -4,6 +4,7 @@ import random
 
 from user import userAccount
 from user import userCredentials
+# import pyperclip
 
 '''
 userAccount class-method definations
@@ -77,7 +78,7 @@ def main():
             user_name = input()
 
 
-            save_userDetails(create_userDetails(first_name,last_name,phone_number,email,user_name)) 
+            save_userDetails(create_user(first_name,last_name,phone_number,email,user_name)) 
             print ('\n')
             print(f"new_userDetails {first_name} {last_name} created")
             print ('\n')

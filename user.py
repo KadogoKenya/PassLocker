@@ -1,6 +1,6 @@
 import string
 import random
-import pyperclip
+# import pyperclip
 
 class userAccount:
     """
@@ -10,7 +10,7 @@ class userAccount:
 
     user_details=[]
 
-    def __init__(self,first_name,last_name,phone_number,email,user_name,):
+    def __init__(self,first_name,last_name,phone_number,email,user_name):
 
         '''
         __init__ method that helps us define properties for our objects.
