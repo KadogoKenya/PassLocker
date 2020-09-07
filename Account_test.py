@@ -65,7 +65,7 @@ class TestUser(unittest.TestCase):
          the user list
         '''
         self.userDetails.save_user()
-        self.new_userDetails = userAccount("Kat","Kanini","0741670758","catherine001@gmail.com","KenyaKenya")
+        self.new_userDetails = userAccount("Kat","Kanini","0711223344","catherine001@gmail.com","KenyaKenya")
         self.new_userDetails.save_user()
         self.assertEqual(len(userAccount.user_details),2)
 
@@ -102,7 +102,7 @@ class TestUser(unittest.TestCase):
 
         self.userDetails.save_user()
         userAccount.copy_email("0711223344")
-        self.assertEqual(self.user.email,pyperclip.paste())
+        self.assertEqual(self.userDetails.email,pyperclip.paste())
 
     def test_delete_user(self):
         self.userDetails.save_user()

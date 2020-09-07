@@ -12,11 +12,17 @@ def create_user(first_name,last_name,phone_number,email,user_name,):
 def save_userDetails(userDetails):
     userDetails.save_user()
 
-def del_user(userDetails):
+def del_details(user):
     '''
-    Function to delete a contact
+    Function to delete a user
     '''
-    userDetails.delete_contact()
+    user.delete_user()
+
+def find_contact(number):
+    '''
+    Function that finds a contact by number and returns the user
+    '''
+    return userAccount.find_detail_by_number(number)
 
 def main():
     print("Hello Welcome to your account password locker. What is your name?")
