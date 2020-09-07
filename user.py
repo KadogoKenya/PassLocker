@@ -35,7 +35,7 @@ class userAccount:
         userAccount.user_details.append(self)
 
     @classmethod
-    def details_exists(cls,self,phone_number):
+    def details_exists(cls,phone_number):
         '''
         Method that checks if a contact exists from the contact list.
         Args:
@@ -46,7 +46,6 @@ class userAccount:
         for detail in cls.user_details:
             if detail.phone_number == phone_number:
                 return True
-
         return False
 
 
