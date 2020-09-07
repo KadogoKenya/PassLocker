@@ -5,6 +5,10 @@ import random
 from user import userAccount
 from user import userCredentials
 
+'''
+userAccount class-method definations
+'''
+
 def create_user(first_name,last_name,phone_number,email,user_name,):
     userDetails= userAccount(first_name,last_name,phone_number,email,user_name,phone_number)
     return userDetails
@@ -36,6 +40,10 @@ def display_details():
     Function that returns all the saved contacts
     '''
     return userAccount.display_user()
+
+'''
+userCredentials class defination
+'''
 
 def main():
     print("Hello Welcome to your account password locker. What is your name?")
@@ -74,6 +82,8 @@ def main():
             print(f"new_userDetails {first_name} {last_name} created")
             print ('\n')
             break
+
+        
 
 if __name__ == '__main__':
     main()
