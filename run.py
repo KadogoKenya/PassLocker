@@ -31,7 +31,7 @@ def check_existing_details(number):
     return userAccount.details_exists(number)
 
 
-def display_contacts():
+def display_details():
     '''
     Function that returns all the saved contacts
     '''
