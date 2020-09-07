@@ -107,13 +107,13 @@ def main():
             print("Enter the number you want to search for")
 
             search_number = input()
-            if check_existing_contacts(search_number):
-                    search_contact = find_contact(search_number)
-                    print(f"{search_contact.first_name} {search_contact.last_name}")
+            if check_existing_details(search_number):
+                    search_user = find_details(search_number)
+                    print(f"{search_user.first_name} {search_user.last_name}")
                     print('-' * 20)
 
-                    print(f"Phone number.......{search_contact.phone_number}")
-                    print(f"Email address.......{search_contact.email}")
+                    print(f"Phone number.......{search_user.phone_number}")
+                    print(f"Email address.......{search_user.email}")
             else:
                     print("That contact does not exist")
 
