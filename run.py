@@ -11,7 +11,7 @@ userAccount class-method definations
 '''
 
 def create_user(first_name,last_name,phone_number,email,user_name,):
-    userDetails= userAccount(first_name,last_name,phone_number,email,user_name,phone_number)
+    userDetails= userAccount(first_name,last_name,phone_number,email,user_name)
     return userDetails
 
 def save_userDetails(userDetails):
@@ -54,7 +54,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : cc - create a new user account, dc - display user accounts,ex -exit ")
+        print("Use these short codes : cc - create a new user details, dc - display user details,ex -exit ")
 
         short_code = input().lower()
 
@@ -79,10 +79,11 @@ def main():
 
 
             save_userDetails(create_user(first_name,last_name,phone_number,email,user_name)) 
+            
             print ('\n')
             print(f"new_userDetails {first_name} {last_name} created")
             print ('\n')
-            break
+            # break
 
         elif short_code == 'dc':
 
@@ -91,14 +92,13 @@ def main():
                     print('\n')
 
                     for detail in display_details():
-                            print(f"{detail.first_name} {detail.last_name} {detail.username} {detail.email}.....{detail.phone_number}")
-
+                            print(f"{detail.first_name} {detail.last_name} {detail.username} {detail.email}...{detail.phone_number}")
                     print('\n')
             else:
                     print('\n')
                     print("You dont seem to have any contacts saved yet")
                     print('\n')
-                    break
+                    # break
 
         
 
