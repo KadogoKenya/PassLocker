@@ -56,7 +56,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : cc - create a new user details, dc - display user details,ex -exit ")
+        print("Use these short codes : cc - create a new user details, dc - display user details,fu-find user, ex -exit ")
 
         short_code = input().lower()
 
@@ -101,6 +101,21 @@ def main():
                     print("You dont seem to have any contacts saved yet")
                     print('\n')
                     # break
+
+        elif short_code == 'fu':
+
+            print("Enter the number you want to search for")
+
+            search_number = input()
+            if check_existing_contacts(search_number):
+                    search_contact = find_contact(search_number)
+                    print(f"{search_contact.first_name} {search_contact.last_name}")
+                    print('-' * 20)
+
+                    print(f"Phone number.......{search_contact.phone_number}")
+                    print(f"Email address.......{search_contact.email}")
+            else:
+                    print("That contact does not exist")
 
         
 
