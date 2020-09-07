@@ -142,7 +142,7 @@ class TestUserCredentials(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.credentials = userCredentials('KadogoKenya', '0711586438','abcdef') 
+        self.credentials = userCredentials('KadogoKenya','test@gmail.com' '0711586438','abcdef') 
 
 
     def tearDown(self):
@@ -157,9 +157,10 @@ class TestUserCredentials(unittest.TestCase):
         test_init test case to test if the object is initialized properly
         '''
 
-        # self.assertEqual(self.credentials.username,'KadogoKenya')
-        # self.assertEqual(self.credentials.number,'0711586438')
-        # self.assertEqual(self.credentials.password,'abcdef')
+        self.assertEqual(self.credentials.username,'KadogoKenya')
+        self.assertEqual(self.credentials.email,'test@gmail.com')
+        self.assertEqual(self.credentials.number,'0711586438')
+        self.assertEqual(self.credentials.password,'abcdef')
 
     def test_save_credential(self):
         '''

@@ -90,7 +90,7 @@ class userCredentials:
 
     user_credentials=[]
 
-    def __init__(self,username,number,password):
+    def __init__(self,username,email,number,password):
 
             '''
             __init__ method that helps us define properties for our objects.
@@ -99,6 +99,11 @@ class userCredentials:
             self.password = password
             self.number=number
             '''
+
+            self.username=username
+            self.email=email
+            self.number=number
+            self.password=password
 
     def save_credential(self):
         userCredentials.user_credentials.append(self)
