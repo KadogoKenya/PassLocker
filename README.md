@@ -1,6 +1,6 @@
 # README.md
 ## Password-Locker
-The project was done using python3.8
+The project was done using python3.6
 
 ### Description
 An application that helps us manage our passwords and even generate new passwords for us.As well as log in to our existing accouts
