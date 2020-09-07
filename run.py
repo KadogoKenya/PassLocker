@@ -30,6 +30,13 @@ def check_existing_details(number):
     '''
     return userAccount.details_exists(number)
 
+
+def display_contacts():
+    '''
+    Function that returns all the saved contacts
+    '''
+    return userAccount.display_contacts()
+
 def main():
     print("Hello Welcome to your account password locker. What is your name?")
     user_name = input()
