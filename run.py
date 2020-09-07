@@ -60,7 +60,7 @@ def del_credentials(user):
     '''
     user.delete_credentials()
 
-def display_credentials():
+def display_credential():
     '''
     Function that returns all the saved contacts
     '''
@@ -78,7 +78,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : cc - create a new user details, dc - display user details,fu-find user,lg-login ex -exit ")
+        print("Use these short codes : cc - create a new user details, dc - display user details,fu-find user,lg-login, dcr-display credentials ex -exit ")
 
         short_code = input().lower()
 
@@ -139,54 +139,75 @@ def main():
             else:
                     print("That contact does not exist")
 
-            elif short_code==lg
+        elif short_code=='lg':
 
-                print("New User username")
-                print("-"*10)
+            print("New User credential")
+            print("-"*10)
 
-                print ("Email ....")
-                email= input()
+            print("username...")
+            username = input()
 
-                print("Number...")
-                username = input()
+            print ("Email ....")
+            email= input()
 
-                print("use short-codes gn-the system to generate a password for you, cp-to create your own password...")
-                email = input()
-                
-                    while True:
-                        print("use short-codes gp-the system to generate a password for you, cp-to create your own password...")
+            print("Number...")
+            username = input()
 
-                        short_code = input().lower()
+            # print("Password...")
+            # username = input()
 
-                        if short_code == 'gp':
-                            # print("New User details")
-                            # print("-"*10)
+            # print("use short-codes gn-the system to generate a password for you, cp-to create your own password...")
+            # email = input()
+            
+            while True:
+                print("use short-codes gp-the system to generate a password for you, cp-to create your own password...")
 
-                            def generatePassword(num):
-                                password=''
+                short_code = input().lower()
 
-                                for n in range(num):
-                                    x = random.randint(0,94)
-                                    password += string.printable[x]
-                                return password
+                if short_code == 'gp':
+                    # print("New User details")
+                    # print("-"*10)
+
+                    def generatePassword(num):
+                        password=''
+
+                        for n in range(num):
+                            x = random.randint(0,94)
+                            password += string.printable[x]
+                        return password
 
 
-                            password_length = int(input("Enter the length of password"))
+                    password_length = int(input("Enter the length of password"))
 
-                            print (generatePassword(password_length))
+                    print (generatePassword(password_length))
 
-                        elif short_code == cp
-                            print("Enter your password here")
-                            password=input()
+                elif short_code == 'cp':
+                    print("Enter your password here")
+                    password=input()
 
-                        else:
-                            print("No password created")
-                
-                save_users(create_user(first_name,last_name,phone_number,email,user_name)) 
-                
-                print ('\n')
-                print(f"new_userDetails {first_name} {last_name} created")
-                print ('\n')
+                else:
+                    print("No password created")
+                break
+        
+            save_credentials(create_credential(username,email,number,password)) 
+            
+            print ('\n')
+            print(f"new_credentials {username} created")
+            print ('\n')
+
+        elif short_code == 'dcr':
+
+            if display_credential():
+                print("Here is a list of all your contacts")
+                print('\n')
+
+                for credential in display_credential():
+                    print(f"{credential.username} {credential.email} {credential.number} {credential.password}")
+                print('\n')
+        else:
+                print('\n')
+                print("You dont seem to have any contacts saved yet")
+                print('\n')
 
         
 
