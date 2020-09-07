@@ -18,11 +18,17 @@ def del_details(user):
     '''
     user.delete_user()
 
-def find_contact(number):
+def find_details(number):
     '''
     Function that finds a contact by number and returns the user
     '''
     return userAccount.find_detail_by_number(number)
+
+def check_existing_details(number):
+    '''
+    Function that check if a contact exists with that number and return a Boolean
+    '''
+    return userAccount.details_exists(number)
 
 def main():
     print("Hello Welcome to your account password locker. What is your name?")
