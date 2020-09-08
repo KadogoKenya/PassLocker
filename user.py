@@ -90,7 +90,7 @@ class userCredentials:
 
     user_credentials=[]
 
-    def __init__(self,username,email,number,password):
+    def __init__(self,username,email,phone_number,password):
 
             '''
             __init__ method that helps us define properties for our objects.
@@ -102,7 +102,7 @@ class userCredentials:
 
             self.username=username
             self.email=email
-            self.number=number
+            self.phone_number=phone_number
             self.password=password
 
     def save_credential(self):
@@ -122,46 +122,4 @@ class userCredentials:
         return cls.user_credentials
 
 
-    # @classmethod
-    # def find_by_number(cls,number):
-    #     '''
-    #     Method that takes in a usename and returns a contact that matches that number.
-
-    #     Args:
-    #         username: username to search for
-    #     Returns :
-    #         credentials.
-    #     '''
-
-    #     for credential in cls.user_credentials:
-    #         if credential.number == number:
-    #             return credential
-
-    # @classmethod
-    # def credential_exists(cls,number):
-    #     '''
-    #     Method that checks if a contact exists from the contact list.
-    #     Args:
-    #         number: Phone number to search if it exists
-    #     Returns :
-    #         Boolean: True or false depending if the contact exists
-    #     '''
-    #     for credential in cls.user_credentials:
-    #         if credential.number == number:
-    #             return True
-
-    #     return False
-                
-        #          def find_by_number(cls,number):
-        # '''
-        # Method that takes in a number and returns a contact that matches that number.
-
-        # Args:
-        #     number: Phone number to search for
-        # Returns :
-        #     Contact of person that matches the number.
-        # '''
-
-        # for contact in cls.contact_list:
-        #     if contact.phone_number == number:
-        #         return contact
+   

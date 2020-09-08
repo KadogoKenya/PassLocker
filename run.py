@@ -45,9 +45,9 @@ def display_user():
     return userAccount.display_user()
 
 
-def create_credential(username,email,number,password):
+def create_credential(username,email,phone_number,password):
     
-    credentials= userCredentials(username,email,number,password)
+    credentials= userCredentials(username,email,phone_number,password)
     
     return credentials
 
@@ -151,7 +151,7 @@ def main():
             email= input()
 
             print("Number...")
-            username = input()
+            phone_number = input()
 
             # print("Password...")
             # username = input()
@@ -165,8 +165,6 @@ def main():
                 short_code = input().lower()
 
                 if short_code == 'gp':
-                    # print("New User details")
-                    # print("-"*10)
 
                     def generatePassword(num):
                         password=''
@@ -180,19 +178,21 @@ def main():
                     password_length = int(input("Enter the length of password"))
 
                     print (generatePassword(password_length))
+                    break
 
                 elif short_code == 'cp':
                     print("Enter your password here")
                     password=input()
+                    break
 
                 else:
                     print("No password created")
-                break
+                    break
         
-            save_credentials(create_credential(username,email,number,password)) 
+            save_credentials(create_credential(username,email,phone_number,password)) 
             
             print ('\n')
-            print(f"new_credentials {username} created")
+            print(f"new_credentials {username} {email} created")
             print ('\n')
 
         elif short_code == 'dcr':
@@ -200,6 +200,7 @@ def main():
             if display_credential():
                 print("Here is a list of all your contacts")
                 print('\n')
+                
 
                 for credential in display_credential():
                     print(f"{credential.username} {credential.email} {credential.number} {credential.password}")
@@ -209,9 +210,6 @@ def main():
                 print("You dont seem to have any contacts saved yet")
                 print('\n')
 
-        
-
-        
 
 if __name__ == '__main__':
     main()
