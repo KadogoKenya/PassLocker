@@ -97,12 +97,12 @@ class TestUser(unittest.TestCase):
 
     def test_copy_email(self):
         '''
-        Test to confirm that we are copying the email address from a found contact
+        Test to confirm that we are copying the email address from a found.
         '''
 
         self.userDetails.save_user()
         userAccount.copy_email("0711223344")
-        self.assertEqual(self.userD.email,pyperclip.paste())
+        self.assertEqual(self.userDetails.email,pyperclip.paste())
 
     def test_delete_user(self):
         self.userDetails.save_user()

@@ -166,6 +166,10 @@ def main():
 
                 if short_code == 'gp':
 
+                    global password
+                    password=''
+
+
                     def generatePassword(num):
                         password=''
 
